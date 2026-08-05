@@ -3,16 +3,29 @@ export default function Footer() {
   return (
     <footer className="site-footer">
       <div className="container footer-grid">
-        
+
         <div className="footer-brand">
           <div className="logo">
             <div className="logo-icon small">
               <div className="hex">
-               
-                <img style={{ width: '100%' }} src={logoSmall} alt="RSP Logo" />
+                <img
+                  style={{
+                    width: '100%',
+                    filter: 'var(--logo-filter, hue-rotate(0deg))', /* السحر هنا */
+                    transition: 'filter 0.3s ease' /* حركة سلسة عند تغيير اللون */
+                  }}
+                  src={logoSmall}
+                  alt="RSP Logo"
+                />
               </div>
             </div>
-            <span>RS<span style={{ color: '#1fe7f4' }}>P</span> Club</span>
+            <span>
+              RS
+              <span style={{
+                color: 'var(--c-cyan)', /* تغيير اللون برمجياً */
+                transition: 'color 0.3s ease'
+              }}>P</span> Club
+            </span>
           </div>
           <p>
             Research, Simulation, Production — training the next generation of nanoscience students, one lattice
@@ -33,17 +46,17 @@ export default function Footer() {
           <p>rsp.club@nsnn.dz</p>
           <p className="school-name">National School of Nanoscience and Nanotechnology</p>
           <div className="social-icon">
-            <a 
-              className="social-icon-a" 
-              href="https://www.instagram.com/rsp.nano/?hl=en" 
+            <a
+              className="social-icon-a"
+              href="https://www.instagram.com/rsp.nano/?hl=en"
               target="_blank"
               rel="noreferrer"
             >
-              <svg 
-                viewBox="0 0 24 24" 
-                width="20" 
-                height="20" 
-                stroke="currentColor" 
+              <svg
+                viewBox="0 0 24 24"
+                width="20"
+                height="20"
+                stroke="currentColor"
                 strokeWidth="2"
                 fill="none"
               >
@@ -54,7 +67,7 @@ export default function Footer() {
             </a>
           </div>
         </div>
-        
+
       </div>
     </footer>
   );

@@ -7,13 +7,14 @@ import Research from './pages/Research';
 import Simulate from './pages/Simulate';
 import './style.css'; // استدعاء ملف التنسيقات
 import Joinus from './pages/Joinus';
+import ThemeSettings from './components/ThemeSettings';
 
 function App() {
   return (
     <Router>
       <div className="stars-bg"></div>
       <Navbar />
-      
+      <ThemeSettings />
       <main className="pages-container">
         <Routes>
           <Route path="/" element={<Home />} />

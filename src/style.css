@@ -82,10 +82,10 @@ body {
     font-size: 0.9rem; cursor: pointer; border: none; transition: 0.3s;
     font-family: var(--font-sans); text-decoration: none; display: inline-block;
 }
-.btn-gradient { background: linear-gradient(90deg, #1CE0C6, #3B82F6); color: #000; }
+.btn-gradient { background: linear-gradient(90deg, var(--c-cyan), #3B82F6); color: #000; }
 .btn-gradient:hover { opacity: 0.9; transform: translateY(-1px); box-shadow: 0 5px 15px rgba(28, 224, 198, 0.3); }
 
-.btn-gradient-large { background: linear-gradient(90deg, #1CE0C6, #3B82F6); color: #000; padding: 14px 32px; font-size: 1rem; }
+.btn-gradient-large { background: linear-gradient(90deg,var(--c-cyan), #3B82F6); color: #000; padding: 14px 32px; font-size: 1rem; }
 .btn-gradient-large:hover { opacity: 0.9; transform: translateY(-2px); box-shadow: 0 5px 20px rgba(28, 224, 198, 0.4); }
 
 .btn-outline { background: transparent; border: 1px solid var(--border-light); color: var(--text-primary); padding: 13px 32px; font-size: 1rem; }
@@ -659,3 +659,154 @@ section { padding: 100px 0; border-top: 1px solid var(--border-light); }
     margin-bottom: 10px;
 }
 .school-name { color: var(--text-muted) !important; max-width: 250px; }
+/* ================== Theme Settings Styles ================== */
+
+/* زر الأيقونة العائم في أسفل اليمين */
+.theme-toggle-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-light);
+    color: var(--text-primary);
+    cursor: pointer;
+    z-index: 999;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.theme-toggle-btn:hover {
+    background: var(--bg-card);
+    transform: scale(1.1);
+}
+
+.theme-toggle-btn .gear-icon {
+    transition: transform 0.5s ease;
+}
+
+.theme-toggle-btn:hover .gear-icon {
+    transform: rotate(90deg); /* دوران الأيقونة عند التأشير */
+}
+
+/* إخفاء الزر عندما تفتح القائمة */
+.theme-toggle-btn.hidden {
+    transform: translateX(100px);
+    opacity: 0;
+}
+
+/* القائمة الجانبية (من اليسار) */
+.theme-sidebar {
+    position: fixed;
+    top: 0;
+    left: -320px; /* مخفية خارج الشاشة من اليسار */
+    width: 300px;
+    height: 100vh;
+    background: rgba(10, 10, 10, 0.85); /* خلفية زجاجية */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-right: 1px solid var(--border-light);
+    z-index: 1001;
+    transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 40px 30px;
+    box-shadow: 20px 0 50px rgba(0, 0, 0, 0.7);
+}
+
+.theme-sidebar.open {
+    left: 0; /* تظهر في الشاشة */
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.sidebar-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-family: var(--font-mono);
+    letter-spacing: 1px;
+}
+
+.close-sidebar {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 2rem;
+    cursor: pointer;
+    transition: color 0.3s;
+    line-height: 1;
+}
+
+.close-sidebar:hover {
+    color: var(--c-cyan); /* ستتغير تلقائياً مع الثيم */
+}
+
+/* شبكة الألوان */
+.colors-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.color-swatch {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.color-swatch:hover {
+    transform: scale(1.15) translateY(-5px);
+    border-color: white;
+}
+
+/* الخلفية المعتمة لباقي الشاشة */
+.sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    backdrop-filter: blur(2px);
+}
+/* شبكة الألوان */
+.colors-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 30px;
+    padding: 10px; /* مساحة إضافية لكي لا تنقطع حلقة التحديد */
+}
+
+.color-swatch {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.2s, outline 0.2s;
+    outline: 2px solid transparent; /* إعداد الحلقة المخفية */
+    outline-offset: 4px; /* المسافة بين الدائرة والحلقة */
+}
+
+.color-swatch:hover {
+    transform: scale(1.1) translateY(-3px);
+}
+
+/* تنسيق اللون النشط (المحدد حالياً) */
+.color-swatch.active {
+    outline: 2px solid white; /* تظهر الحلقة البيضاء */
+    transform: scale(1.1); /* يبقى مكبراً قليلاً */
+}
