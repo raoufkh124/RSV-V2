@@ -14,7 +14,6 @@ function App() {
     <Router>
       <div className="stars-bg"></div>
       <Navbar />
-      <ThemeSettings />
       <main className="pages-container">
         <Routes>
           <Route path="/" element={<Home />} />
