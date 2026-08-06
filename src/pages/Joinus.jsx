@@ -3,7 +3,7 @@ export default function JoinUs() {
     <div id="join" className="page active">
       
       {/* قسم الهيرو */}
-      <section className="hero join-hero">
+      <section className="hero " style={{paddingBottom: "20px"}}>
         <div className="container">
           <div className="section-tag">&mdash; JOIN THE TEAM</div>
           <h1 className="hero-title">Become an <span className="highlight-text">Innovator</span></h1>

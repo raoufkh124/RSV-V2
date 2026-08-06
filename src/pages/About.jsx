@@ -11,7 +11,7 @@ export default function About() {
       transition={{ duration: 0.3, ease: "easeOut" }}
       
       // تأكد من وجود zIndex لكي يبقى المحتوى فوق الخلفية
-      style={{ position: 'relative', zIndex: 1, minHeight: '100vh', padding: '20px' }} 
+      style={{ position: 'relative', zIndex: 1, minHeight: '100vh' }} 
     >
       {/* قسم الهيرو (البداية) */}
       <section className="hero" style={{ paddingTop: '150px', paddingBottom: '60px' }}>
