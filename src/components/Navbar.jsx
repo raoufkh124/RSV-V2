@@ -45,6 +45,7 @@ export default function Navbar() {
         <NavLink to="/about" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}>About</NavLink>
         <NavLink to="/research" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}>Research</NavLink>
         <NavLink to="/simulate" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}>Simulate</NavLink>
+        <NavLink to="/pipelines" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}>Pipelines</NavLink>
       </nav>
       <NavLink to='/joinus' className="btn btn-gradient">Join the Club</NavLink>
     </header>

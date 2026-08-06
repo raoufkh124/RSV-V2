@@ -1,7 +1,20 @@
 import { Link, NavLink } from 'react-router-dom';
 import backgroundVideo from '../assets/background.mp4';
+import { motion } from 'framer-motion';
 export default function Home() {
   return (
+    <motion.div
+    initial={{ opacity: 0, y: 15 }}
+      
+      // 2. حالة الدخول: يظهر بالكامل (1) ويستقر في مكانه الطبيعي
+      animate={{ opacity: 1, y: 0 }}
+      
+      // 3. حالة الخروج (عند الانتقال لصفحة أخرى): يختفي ويرتفع للأعلى
+      exit={{ opacity: 0, y: -15 }}
+      
+      // 4. إعدادات الحركة: المدة والنعومة
+      transition={{ duration: 0.3, ease: "easeOut" }}
+    >
     <div id="home" className="page">
       
       {/* 1. Hero Section */}
@@ -83,7 +96,7 @@ export default function Home() {
       <section className="tech-stack">
         <div className="container">
           <div className="section-tag">&mdash; TECHNOLOGIES & TOOLS</div>
-          <h2 className="section-heading">What we teach members to use</h2>
+          <h2 className="section-heading">Our Tech Stack</h2>
           
           <div className="cards-grid">
             <div className="tech-card">
@@ -133,5 +146,7 @@ export default function Home() {
       </section>
       
     </div>
+    </motion.div>
+
   );
 }

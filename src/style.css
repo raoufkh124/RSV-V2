@@ -16,8 +16,8 @@
     
     --border-light: rgba(255, 255, 255, 0.08);
     
-    --font-sans: 'Noto Sans', sans-serif;
-    --font-serif: 'JetBrains Mono', serif;
+    --font-sans: "Cairo", sans-serif;
+    --font-serif: 'Cairo', serif;
     --font-mono: 'Space Mono', monospace;
 }
 
@@ -809,4 +809,203 @@ section { padding: 100px 0; border-top: 1px solid var(--border-light); }
 .color-swatch.active {
     outline: 2px solid white; /* تظهر الحلقة البيضاء */
     transform: scale(1.1); /* يبقى مكبراً قليلاً */
+}
+/* ================== Page Transition Animation ================== */
+
+@keyframes snappyFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(15px);
+        filter: blur(3px); /* تأثير ضبابي خفيف ومستقبلي في البداية */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+/* الكلاس الذي سنضعه في كل صفحة */
+.page {
+    animation: snappyFadeIn 0.35s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    will-change: opacity, transform, filter; /* لأداء سلس وخالي من التقطيع */
+}
+/* ================== Pipelines Page ================== */
+
+.pipelines-page {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  padding: 80px 5%;
+  color: white;
+}
+
+/* --- Header Section --- */
+.pipelines-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.pipelines-tag {
+  color: var(--c-cyan);
+  letter-spacing: 2px;
+  font-size: 0.85rem;
+  margin-bottom: 15px;
+}
+
+.pipelines-title {
+  font-size: 3rem;
+  font-family: var(--font-mono);
+  margin-bottom: 15px;
+}
+
+.pipelines-title span {
+  color: var(--c-cyan);
+}
+
+.pipelines-desc {
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* --- Filters Section --- */
+.pipelines-filters {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 40px;
+}
+
+.filter-btn {
+  padding: 8px 24px;
+  background-color: transparent;
+  color: var(--text-secondary);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: normal;
+  transition: all 0.3s ease;
+  font-family: var(--font-mono);
+}
+
+.filter-btn.active {
+  background-color: var(--c-cyan);
+  color: #000;
+  border-color: var(--c-cyan);
+  font-weight: bold;
+}
+
+/* --- Grid Section --- */
+.pipelines-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* --- Pipeline Card --- */
+.pipeline-card {
+  background: rgba(10, 10, 10, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+/* تأثير الـ Hover */
+.pipeline-card:hover {
+  transform: translateY(-7px); /* يرفع البطاقة للأعلى قليلاً */
+  border-color: var(--c-cyan); /* يغير لون الإطار للون الثيم الخاص بك */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 15px rgba(28, 224, 198, 0.15); /* ظل أعمق مع توهج خفيف */
+}
+
+/* تأثير إضافي: جعل عنوان البطاقة يضيء قليلاً عند الـ Hover */
+.pipeline-card:hover .card-title {
+  color: var(--c-cyan);
+  transition: color 0.3s ease;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-tag {
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  border-radius: 20px;
+  letter-spacing: 1px;
+}
+
+.card-tag.project {
+  background: rgba(28, 224, 198, 0.1);
+  color: var(--c-cyan);
+}
+
+.card-tag.event {
+  background: rgba(236, 72, 153, 0.1);
+  color: #EC4899;
+}
+
+.card-date {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.card-title {
+  margin: 0;
+  font-size: 1.4rem;
+  font-family: var(--font-mono);
+}
+
+.card-desc {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  flex-grow: 1;
+}
+
+.card-divider {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  margin: 5px 0;
+}
+
+.card-status-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.status-dot.completed {
+  background-color: #10B981;
+  box-shadow: 0 0 8px #10B981;
+}
+
+.status-dot.active {
+  background-color: var(--c-cyan);
+  box-shadow: 0 0 8px var(--c-cyan);
+}
+
+.status-text {
+  color: var(--text-muted);
+}
+
+.status-text span {
+  color: white;
 }

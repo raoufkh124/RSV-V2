@@ -1,7 +1,18 @@
+import HexGrid from "../components/HexGrid";
+import {motion} from 'framer-motion'
 export default function About() {
   return (
-    <div id="about" className="page">
+    <>
+     
+    <motion.div
+      initial={{ opacity: 0, y: 15 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -15 }}
+      transition={{ duration: 0.3, ease: "easeOut" }}
       
+      // تأكد من وجود zIndex لكي يبقى المحتوى فوق الخلفية
+      style={{ position: 'relative', zIndex: 1, minHeight: '100vh', padding: '20px' }} 
+    >
       {/* قسم الهيرو (البداية) */}
       <section className="hero" style={{ paddingTop: '150px', paddingBottom: '60px' }}>
         <div className="container">
@@ -20,7 +31,7 @@ export default function About() {
       <section className="mission-section">
         <div className="container mission-container">
           <div className="mission-statement">
-            <h2>Our mission is to bridge the gap between  <span>theoretical science and applied technology.</span></h2>
+            <h4>Our mission is to bridge the gap between  <span>theoretical science and applied technology.</span></h4>
           </div>
           <div className="mission-details">
             <div className="mission-box">
@@ -73,6 +84,8 @@ Through our Research-First pipeline, members don't just study material science�
         </div>
       </section>
       
-    </div>
+    </motion.div>
+    </>
+
   );
 }

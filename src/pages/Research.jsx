@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import ModelInfoCard from '../components/ModelInfoCard';
+import ResearchParticles from '../components/ResearchParticles';
 
 const nanoModelsList = [
   { id: 'transistor', title: 'Nano Transistor', desc: 'Silicon-based architecture', type: 'transistor', color: '#1CE0C6' },
@@ -17,8 +19,10 @@ export default function ResearchPage() {
   };
 
   return (
+    <>
+    
+      <ResearchParticles />
     <div id="research" className="page">
-      
       {/* 1. Hero Section */}
       <section className="hero research-hero">
         <div className="container">
@@ -198,5 +202,6 @@ export default function ResearchPage() {
       </section>
 
     </div>
+    </>
   );
 }
