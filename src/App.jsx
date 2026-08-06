@@ -11,11 +11,12 @@ import Joinus from './pages/Joinus';
 import ThemeSettings from './components/ThemeSettings';
 import HexGrid from './components/HexGrid';
 import Pipelines from './pages/Pipelines';
-
+import {Analytics} from '@vercel/analytics/react'
 function App() {
   const location = useLocation();
   return (
     <>
+      <Analytics/>
       <div className="stars-bg"></div>
       <AnimatePresence>
         {location.pathname === '/about' && (
