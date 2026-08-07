@@ -1,4 +1,4 @@
-import logoSmall from '../assets/logo-white.png'
+import logoSmall from '../assets/logo-white.webp'
 export default function Footer() {
   return (
     <footer className="site-footer">
@@ -51,6 +51,7 @@ export default function Footer() {
               href="https://www.instagram.com/rsp.nano/?hl=en"
               target="_blank"
               rel="noreferrer"
+              aria-label="Visit RSP Club on Instagram"
             >
               <svg
                 viewBox="0 0 24 24"

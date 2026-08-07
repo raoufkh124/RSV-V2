@@ -1,6 +1,6 @@
 import { NavLink, Link } from 'react-router-dom';
-import logoLarge from '../assets/logo-large-white.png'
-import logoSmall from '../assets/logo-black.png'
+import logoLarge from '../assets/logo-large-white.webp'
+import logoSmall from '../assets/logo-black.webp'
 export default function Navbar() {
   return (
     <header className="navbar">
