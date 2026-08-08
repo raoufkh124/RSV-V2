@@ -5,7 +5,7 @@ const pipelineData = [
     {
         id: 1,
         type: 'Project',
-        title: 'Graphene Transistor Simulation Sponsored',
+        title: 'Graphene Transistor Simulation ',
         status: 'In Progress',
         date: 'Oct 2026',
         description: 'Modeling electron mobility in 2D materials and analyzing heat dissipation at the nanoscale.',
